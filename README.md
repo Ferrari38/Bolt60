@@ -295,7 +295,7 @@
             let maintenanceFee = incomeSum * 0.1;
             let remainingIncome = incomeSum - maintenanceFee;
             let remainingAfterExpenses = remainingIncome - electricity;
-            let half = remainingAfterExpenses * 0.6;
+            let half = remainingAfterExpenses * 0.4;
             let totalToTransfer = half + maintenanceFee;
 
             let calculationText = '';
@@ -311,8 +311,8 @@
             calculationText += `ค่าไฟ: ${electricity} บาท\n`;
             calculationText += `รายจ่ายอื่นๆ: ${otherExpenses} บาท\n`;
             calculationText += `รวมรายจ่าย = ${maintenanceFee.toFixed(2)} + ${electricity} + ${otherExpenses} = ${(maintenanceFee + electricity + otherExpenses).toFixed(2)} บาท\n`;
-            calculationText += `60% = (${incomeSum.toFixed(2)} - ${(maintenanceFee + electricity + otherExpenses).toFixed(2)}) = ${half.toFixed(2) - otherExpenses*0.6} บาท\n`;
-            calculationText += `60%+บำรุง 10% = ${half.toFixed(2) - otherExpenses*0.6} + ${maintenanceFee.toFixed(2)} = ${totalToTransfer.toFixed(2) - otherExpenses*0.6} บาท\n`;
+            calculationText += `40% = (${incomeSum.toFixed(2)} - ${(maintenanceFee + electricity + otherExpenses).toFixed(2)}) = ${half.toFixed(2) - otherExpenses*0.4} บาท\n`;
+            calculationText += `40%+บำรุง 10% = ${half.toFixed(2) - otherExpenses*0.6} + ${maintenanceFee.toFixed(2)} = ${totalToTransfer.toFixed(2) - otherExpenses*0.4} บาท\n`;
 
             let startday1 = parseFloat(document.getElementById('startday1').value) || 0;
             let endday1 = parseFloat(document.getElementById('endday1').value) || 0;
@@ -368,7 +368,7 @@
             }
             let ratePerKm = (incomeSum / totalDistance).toFixed(2) || 0;
             document.getElementById('calculationDetails').textContent = calculationText;
-            document.getElementById('totalSum').textContent = `รวมยอดที่ต้องโอน: ${totalToTransfer.toFixed(2) - otherExpenses*0.6} บาท`;
+            document.getElementById('totalSum').textContent = `รวมยอดที่ต้องโอน: ${totalToTransfer.toFixed(2) - otherExpenses*0.4} บาท`;
             document.getElementById('distanceUsed').textContent = `ระยะทางที่ใช้: ${totalDistance} กม.`;
             document.getElementById('ratePerKm').textContent = `บาทต่อกิโลเมตร: ${ratePerKm} บาท/กม.`;
         }
